@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blue-Boat</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#071521;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at top left,#16344f 0%,transparent 35%),
+        radial-gradient(circle at bottom right,#0e2236 0%,transparent 40%);
+      z-index:-1;
+    }
+
+    .navbar{
+      width:100%;
+      padding:22px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      backdrop-filter:blur(12px);
+      background:rgba(7,21,33,.55);
+      border-bottom:1px solid rgba(255,255,255,.05);
+      z-index:100;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:1.2rem;
+      font-weight:600;
+    }
+
+    .logo img{
+      width:42px;
+      border-radius:50%;
+      animation:float 4s ease-in-out infinite;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#d7e9f7;
+      transition:.3s;
+    }
+
+    .nav-links a:hover{
+      color:#7dcfff;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:120px 8%;
+      position:relative;
+    }
+
+    .hero-content{
+      max-width:760px;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero img{
+      width:120px;
+      margin-bottom:30px;
+      filter:drop-shadow(0 0 25px rgba(125,207,255,.35));
+      animation:float 5s ease-in-out infinite;
+    }
+
+    h1{
+      font-size:4.5rem;
+      margin-bottom:20px;
+      background:linear-gradient(to right,#ffffff,#7dcfff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      font-size:1.15rem;
+      color:#b8d4e7;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 28px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.35s;
+    }
+
+    .primary{
+      background:#7dcfff;
+      color:#071521;
+      box-shadow:0 0 25px rgba(125,207,255,.35);
+    }
+
+    .primary:hover{
+      transform:translateY(-4px);
+      box-shadow:0 0 35px rgba(125,207,255,.55);
+    }
+
+    .secondary{
+      border:1px solid rgba(255,255,255,.1);
+      color:white;
+      background:rgba(255,255,255,.03);
+    }
+
+    .secondary:hover{
+      background:rgba(255,255,255,.07);
+      transform:translateY(-4px);
+    }
+
+    .commands{
+      padding:100px 8%;
+    }
+
+    .section-title{
+      font-size:2.4rem;
+      margin-bottom:50px;
+      text-align:center;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:24px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.05);
+      border-radius:22px;
+      padding:28px;
+      transition:.35s;
+      backdrop-filter:blur(10px);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(125,207,255,.35);
+      box-shadow:0 0 30px rgba(125,207,255,.12);
+    }
+
+    .command{
+      color:#7dcfff;
+      font-size:1.1rem;
+      margin-bottom:10px;
+      font-weight:600;
+    }
+
+    .desc{
+      color:#bdd3e3;
+      line-height:1.7;
+    }
+
+    footer{
+      padding:40px;
+      text-align:center;
+      color:#7e9ab0;
+      border-top:1px solid rgba(255,255,255,.05);
+      margin-top:80px;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-10px);
+      }
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:3rem;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="boat.png" alt="">
+      Blue-Boat
+    </div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#commands">Commands</a>
+      <a href="#">Invite</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <img src="boat.png" alt="Blue Boat Logo">
+
+      <h1>Blue-Boat</h1>
+
+      <p>
+        Smooth music. Clean commands. No clutter.
+        Blue-Boat keeps your voice channel alive with fast playback,
+        simple controls, and a modern experience built for Discord servers.
+      </p>
+
+      <div class="buttons">
+        <a href="#" class="btn primary">Invite Bot</a>
+        <a href="#commands" class="btn secondary">View Commands</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="commands" id="commands">
+
+    <h2 class="section-title">Commands</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="command">clear</div>
+        <div class="desc">Clears the entire queue instantly.</div>
+      </div>
+
+      <div class="card">
+        <div class="command">help</div>
+        <div class="desc">Shows all available commands.</div>
+      </div>
+
+      <div class="card">
+        <div class="command">queue</div>
+        <div class="desc">Displays the current song queue.</div>
+      </div>
+
+      <div class="card">
+        <div class="command">remove</div>
+        <div class="desc">Removes a selected song from queue.</div>
+      </div>
+
+      <div class="card">
+        <div class="command">search</div>
+        <div class="desc">Searches and adds songs to queue.</div>
+      </div>
+
+      <div class="card">
+        <div class="command">stop</div>
+        <div class="desc">Stops playback and clears queue.</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    Blue-Boat © 2026 — made for smooth listening.
+  </footer>
+
+</body>
+</html>
